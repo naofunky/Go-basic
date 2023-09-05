@@ -1,7 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	// "os"
+	// "github.com/joho/godotenv"
+)
+
+var client *string
 
 func main() {
-	fmt.Println("Hello, World!")
+	test := "test"
+	var pointer *string = &test
+
+	client = &test
+
+	defer fmt.Println(test)
+	fmt.Println(pointer)
+	fmt.Println(*client)
 }
