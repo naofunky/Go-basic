@@ -2,41 +2,27 @@ package main
 
 import "fmt"
 
-// "os"
-// "github.com/joho/godotenv"
-
-var client *string
-
 func main() {
-	// test := "test"
-	// var pointer *string = &test
+	pointerUser := &User{
+		name: "tio",
+	}
+	fmt.Println(pointerUser.name)
 
-	// client = &test
+	pointerUser.ChangeNameByAtaiReceiver("iis")
+	fmt.Println(pointerUser.name)
 
-	// defer fmt.Println(test)
-	// fmt.Println(pointer)
-	// fmt.Println(*client)
-	forname := User{name: "test"}
-	getName(forname)
-	fmt.Println(forname.name)
-
-	// forname := &User{name: "test"}
-	// getName(forname)
-	// fmt.Println(forname.name)
-
-	s := []string{"a", "b", "c"}
-	changeSlice(s)
-	fmt.Println(s)
+	pointerUser.ChangeNameByPointerReceiver("iis")
+	fmt.Println(pointerUser.name)
 }
 
 type User struct {
 	name string
 }
 
-func getName(u User) {
-	u.name = "test2"
+func (u User) ChangeNameByAtaiReceiver(name string) {
+	u.name = name
 }
 
-func changeSlice(s []string) {
-	s[0] = "d"
+func (u *User) ChangeNameByPointerReceiver(name string) {
+	u.name = name
 }
