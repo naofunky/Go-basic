@@ -2,7 +2,7 @@ package slice
 
 import "fmt"
 
-func slice() {
+func Slice() {
 	var a [3]int
 	var a1 = [3]int{1, 2, 3}
 	a2 := [...]int{1, 2, 3, 4, 5}
