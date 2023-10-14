@@ -1,19 +1,19 @@
-package slice
+package main
 
 import "fmt"
 
-func Slice() {
-	var a [3]int
-	var a1 = [3]int{1, 2, 3}
-	a2 := [...]int{1, 2, 3, 4, 5}
+func main() {
+	sl := []int{}
 
-	var s1 []int
-	s2 := []int{}
+	// sl = append(sl, 1)
+	// sl = append(sl, 2)
+	sl = append(sl, 1, 2, 3, 4, 5)
 
-	fmt.Println(a)
-	fmt.Println(a1)
-	fmt.Println(a2)
-	fmt.Println(len(a2), cap(a2))
-	fmt.Println(s1)
-	fmt.Println(s2)
+	for _, v := range sl {
+		fmt.Println(v)
+	}
+
+	fmt.Println(sl)
+	fmt.Println(sl[0])
+	fmt.Println(len(sl))
 }
