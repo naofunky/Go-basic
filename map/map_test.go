@@ -20,4 +20,23 @@ func TestMain(t *testing.T) {
 			t.Errorf("m length is not 3")
 		}
 	})
+
+	t.Run("重複処理のテスト", func(t *testing.T) {
+		duplicatedArray := []int{1, 2, 3, 3, 4, 5}
+		notDuplicatedArray := []int{}
+
+		myMap := map[int]struct{}{}
+
+		for _, v := range duplicatedArray {
+			_, loopValue := myMap[v]
+			if !loopValue {
+				myMap[v] = struct{}{}
+				notDuplicatedArray = append(notDuplicatedArray, v)
+			}
+		}
+
+		if len(notDuplicatedArray) != 5 {
+			t.Errorf("notDuplicatedArray length is not 5")
+		}
+	})
 }

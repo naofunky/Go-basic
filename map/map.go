@@ -32,8 +32,30 @@ func main() {
 	// }
 
 	// mapの削除機能は第一引数には削除対象のmap第二引数には削除する要素のキーを指定する
-	delete(m, "name")
-	fmt.Println(m)
+	// delete(m, "name")
+	// fmt.Println(m)
 
 	// fmt.Println(m)
+
+	// 重複排除
+	duplicatedArray := []int{1, 2, 3, 3, 4, 5}
+	notDuplicatedArray := []int{}
+
+	// 空の構造体を用いることで
+	myMap := map[int]struct{}{}
+
+	for _, v := range duplicatedArray {
+		_, loopValue := myMap[v]
+		// fmt.Println(v)
+		// fmt.Println(loopValue)
+
+		if !loopValue {
+			myMap[v] = struct{}{}
+			notDuplicatedArray = append(notDuplicatedArray, v)
+		} else {
+			fmt.Println("一致したキーがあるよ")
+		}
+	}
+
+	fmt.Println(notDuplicatedArray)
 }
