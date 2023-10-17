@@ -18,4 +18,12 @@ func TestRune(t *testing.T) {
 			t.Errorf("character length is not 5")
 		}
 	})
+
+	t.Run("感じの日本語の文字数カウントの検証", func(t *testing.T) {
+		message := "感じ"
+		messageRune := []rune(message)
+		if len(messageRune) != 2 {
+			t.Errorf("character length is not 2")
+		}
+	})
 }
