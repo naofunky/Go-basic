@@ -3,17 +3,29 @@ package main
 import "fmt"
 
 func main() {
-	sl := []int{}
+	// sl := []int{}
 
 	// sl = append(sl, 1)
 	// sl = append(sl, 2)
-	sl = append(sl, 1, 2, 3, 4, 5)
+	// sl = append(sl, 1, 2, 3, 4, 5)
 
-	for _, v := range sl {
-		fmt.Println(v)
-	}
+	// for _, v := range sl {
+	// 	fmt.Println(v)
+	// }
 
-	fmt.Println(sl)
-	fmt.Println(sl[0])
-	fmt.Println(len(sl))
+	var nilSlice []int
+	emptySlice := []int{}
+
+	fmt.Println(nilSlice == nil)
+	fmt.Println(emptySlice == nil)
+
+	fmt.Println(len(nilSlice))
+	fmt.Println(len(emptySlice))
+
+	fmt.Println(cap(nilSlice))
+	fmt.Println(cap(emptySlice))
+
+	// fmt.Println(sl)
+	// fmt.Println(sl[0])
+	// fmt.Println(len(sl))
 }
