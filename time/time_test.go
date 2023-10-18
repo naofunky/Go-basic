@@ -16,4 +16,10 @@ func TestTime(t *testing.T) {
 			t.Errorf("Local time is out of expected range: %s", localTime)
 		}
 	})
+
+	t.Run("UTC時刻が期待される範囲内であるかの検証", func(t *testing.T) {
+		if utcTime.Before(time.Now().Add(-time.Second)) || utcTime.After(time.Now().Add(time.Second)) {
+			t.Errorf("UTC time is out of expected range: %s", utcTime)
+		}
+	})
 }
