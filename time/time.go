@@ -5,31 +5,37 @@ import (
 	"time"
 )
 
-type MyTime struct {
-	t time.Time
-}
+// type MyTime struct {
+// 	t time.Time
+// }
 
 func main() {
 	// // ローカル時間を取得
-	// localTime := time.Now()
+	localTime := time.Now()
 
-	// // UTCに変換
-	// utcTime := localTime.UTC()
+	// UTCに変換
+	utcTime := localTime.UTC()
 
-	// // ローカル時間とUTC時間を出力
-	// fmt.Printf("Local time: %s\n", localTime)
-	// fmt.Printf("UTC time: %s\n", utcTime)
+	// ローカル時間とUTC時間を出力
+	fmt.Printf("Local time: %s\n", localTime)
+	fmt.Printf("UTC time: %s\n", utcTime)
 
-	t1 := MyTime{t: time.Now()}
-	t2 := MyTime{t: time.Now()}
+	// 不等号の比較の検証
+	// second := int((8 * time.Hour).Seconds())
+	// location := time.FixedZone("Asia/Tokyo", second)
 
-	// invalid operation: t1 == t2 (struct containing time.Time cannot be compared)というコンパイルエラーになるのかなと思ったら処理が実行されてしまう。
-	if t1.t.Equal(t2.t) {
-		fmt.Println("t1 is equal to t2")
-	} else {
-		fmt.Println("t1 is not equal to t2")
-	}
+	// fmt.Println(second)
+	// fmt.Println(location)
 
-	// fmt.Printf("Local time: %s\n", t1)
-	// fmt.Printf("Local time: %s\n", t2)
+	// timeTokyo := time.Date(2023, 10, 19, 8, 0, 0, 0, location)
+	// timeUTC := time.Date(2023, 10, 19, 0, 0, 0, 0, time.UTC)
+
+	// fmt.Println(timeTokyo)
+	// fmt.Println(timeUTC)
+
+	// compareCharacterEqual := timeTokyo == timeUTC
+	// compareEqual := timeTokyo.Equal(timeUTC)
+
+	// fmt.Println(compareCharacterEqual)
+	// fmt.Println(compareEqual)
 }
