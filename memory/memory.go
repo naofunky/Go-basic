@@ -5,6 +5,7 @@ import (
 	"runtime"
 )
 
+// 状態を出力する関数
 func printMemStats() {
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
@@ -18,10 +19,12 @@ func printMemStats() {
 	fmt.Printf("\tNumGC = %v\n", m.NumGC)
 }
 
+// バイトをメガバイトに変換するヘルパー関数
 func bToMb(b uint64) uint64 {
 	return b / 1024 / 1024
 }
 
+// メイン関数
 func main() {
 	printMemStats()
 
