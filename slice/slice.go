@@ -30,6 +30,6 @@ func main() {
 	// fmt.Println(len(sl))
 
 	s4 := make([]int, 0, 3)
-	s4 = append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+	s4 = append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
 	fmt.Println(s4, len(s4), cap(s4))
 }
