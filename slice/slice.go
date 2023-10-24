@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	// "unsafe"
+	// "unsafe"
+)
 
 func main() {
 	// sl := []int{}
@@ -55,9 +59,36 @@ func main() {
 	// fmt.Println(s10, len(s10), cap(s10))
 
 	// s11 := []int{11, 12, 13, 14, 15, 16, 17, 18} // 8,8
-	// s12 := s11[2:6]                              // 4,6
-	// fmt.Println(s11, len(s11), cap(s11))
-	// fmt.Println(s12, len(s12), cap(s12))
+	// s12 := s11[2:6]
+	// fmt.Println("s11:①", s11, len(s11), cap(s11))
+	// fmt.Println("s12:②", s12, len(s12), cap(s12))
+
+	// // スライスの要素を追加した時の要素数と容量
+	// s12 = append(s12, 7, 8, 999)
+	// fmt.Println("s11:③", s11, len(s11), cap(s11))
+	// fmt.Println("s12:④", s12, len(s12), cap(s12))
+
+	// s12[0] = 52
+	// fmt.Println("s11:⑤", s11, len(s11), cap(s11))
+	// fmt.Println("s12:⑥", s12, len(s12), cap(s12))
+	// s11 := []int{11, 12, 13, 14, 15, 16, 17, 18} // 8,8
+	// s12 := s11[2:6]
+	// fmt.Println("s11:①", s11, len(s11), cap(s11), "ポインタ:", unsafe.Pointer(&s11[0]))
+	// fmt.Println("s12:②", s12, len(s12), cap(s12), "ポインタ:", unsafe.Pointer(&s12[0]))
+
+	// // スライスの要素を追加した時の要素数と容量
+	// s12 = append(s12, 7, 8, 999)
+	// fmt.Println("s11:③", s11, len(s11), cap(s11), "ポインタ:", unsafe.Pointer(&s11[0]))
+	// fmt.Println("s12:④", s12, len(s12), cap(s12), "ポインタ:", unsafe.Pointer(&s12[0]))
+
+	// s12[0] = 52
+	// fmt.Println("s11:⑤", s11, len(s11), cap(s11), "ポインタ:", unsafe.Pointer(&s11[0]))
+	// fmt.Println("s12:⑥", s12, len(s12), cap(s12), "ポインタ:", unsafe.Pointer(&s12[0]))
+
+	// 元のスライスまで変わってしまう
+	// s12[0] = 555
+	// fmt.Println("s11:", s11, len(s11), cap(s11))
+	// fmt.Println("s12:", s12, len(s12), cap(s12))
 
 	// s13 := []int{35, 69, 101, 2, 52, 223, 4035, 22, 76, 99} // 10,10
 	// s14 := s13[3:7]
@@ -87,13 +118,32 @@ func main() {
 	s16 = append(s16, 200)
 
 	// fmt.Println("s15:", s15, len(s15), cap(s15))
-	fmt.Println("s16:", s16, len(s16), cap(s16))
+	// fmt.Println("s16:", s16, len(s16), cap(s16))
 
 	// copy関数を使ってスライスをコピー
 	sc16 := make([]int, len((s15[1:3])))
 	// fmt.Println("sc16:", sc16, len(sc16), cap(sc16)) // まずはコピー先のスライス作成
 	copy(sc16, s15[1:3]) // copy関数でコピー
 	sc16[1] = 2000
-	fmt.Println("s15:", s15, len(s15), cap(s15))
-	fmt.Println("sc16:", sc16, len(sc16), cap(sc16))
+	// fmt.Println("s15:", s15, len(s15), cap(s15))
+	// fmt.Println("sc16:", sc16, len(sc16), cap(sc16))
+
+	//　コピーする範囲を限定するスライスを複製してデータを変更してみる
+	s30 := make([]int, 4, 6)
+	fs := s30[1:3:3]
+	fmt.Println("s30:", s30, len(s30), cap(s30))
+	fmt.Println("fs:", s30, len(fs), cap(fs))
+
+	fs[0] = 2
+	fs[1] = 3
+	fmt.Println("s30:", s30, len(s30), cap(s30))
+	fmt.Println("fs:", s30, len(fs), cap(fs))
+
+	fs = append(fs, 8)
+	fmt.Println("s30:", s30, len(s30), cap(s30))
+	fmt.Println("fs:", s30, len(fs), cap(fs))
+
+	s30[3] = 999
+	fmt.Println("s30:", s30, len(s30), cap(s30))
+	fmt.Println("fs:", s30, len(fs), cap(fs))
 }
