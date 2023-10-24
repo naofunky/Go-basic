@@ -29,10 +29,10 @@ func main() {
 	// fmt.Println(sl[0])
 	// fmt.Println(len(sl))
 
-	s4 := make([]int, 0, 4)
-	fmt.Println(s4, len(s4), cap(s4))
-	s5 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-	fmt.Println(s5, len(s5), cap(s5))
+	// s4 := make([]int, 0, 4)
+	// fmt.Println(s4, len(s4), cap(s4))
+	// s5 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+	// fmt.Println(s5, len(s5), cap(s5))
 	// s76 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
 	// fmt.Println(s76, len(s76), cap(s76))
 
@@ -63,4 +63,37 @@ func main() {
 	// s14 := s13[3:7]
 	// fmt.Println(s13, len(s13), cap(s13))
 	// fmt.Println(s14, len(s14), cap(s14))
+
+	// 普通の要素の追加
+	s17 := []int{}
+	// fmt.Println("s17:", s17, len(s17), cap(s17))
+	s17 = append(s17, 1, 2, 3)
+	// fmt.Println("s17:", s17, len(s17), cap(s17))
+	s18 := []int{4, 5, 6}
+	s17 = append(s17, s18...) //スリードットをつけると可変調で渡せる
+	// fmt.Println("s17:", s17, len(s17), cap(s17))
+
+	// makeメソッドを使ってスライスを作成
+	s15 := make([]int, 4, 7)
+	s16 := s15[1:3]
+
+	// fmt.Println("s15:", s15, len(s15), cap(s15))
+	// fmt.Println("s16:", s16, len(s16), cap(s16))
+
+	// 値を代入して確認
+	s16[1] = 100
+
+	// s16にさらに値を追加して確認
+	s16 = append(s16, 200)
+
+	// fmt.Println("s15:", s15, len(s15), cap(s15))
+	fmt.Println("s16:", s16, len(s16), cap(s16))
+
+	// copy関数を使ってスライスをコピー
+	sc16 := make([]int, len((s15[1:3])))
+	// fmt.Println("sc16:", sc16, len(sc16), cap(sc16)) // まずはコピー先のスライス作成
+	copy(sc16, s15[1:3]) // copy関数でコピー
+	sc16[1] = 2000
+	fmt.Println("s15:", s15, len(s15), cap(s15))
+	fmt.Println("sc16:", sc16, len(sc16), cap(sc16))
 }
