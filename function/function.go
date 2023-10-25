@@ -37,6 +37,18 @@ func fileChecker(name string) (string, error) { //複数の返り値を設定し
 	return name, nil
 }
 
+// ファイル名を受け取り指定の拡張子を与える関数
+func addExc(f func(file string) string, name string) {
+	fmt.Println(f(name))
+}
+
+// 無名関数を引数にとる関数
+func sas() func(int) int {
+	return func(n int) int {
+		return n * 10000
+	}
+}
+
 func main() {
 	funcDefer()
 	// スライスの値を引数に渡すことで、拡張子を除いてファイル名だけを返してくれる
@@ -49,4 +61,25 @@ func main() {
 		return
 	}
 	fmt.Println(name)
+
+	// 即座に実行される無名関数
+	// i := 1
+	// func(i int) {
+	// 	fmt.Println(i)
+	// }(i)
+
+	// 任意のタイミングで関数を実行する時は、変数に代入したりする
+	// f1 := func(i int) int {
+	// 	return i + 1
+	// }
+	// fmt.Println(f1(i))
+
+	// 無名関数を関数の引数として渡す
+	f2 := func(file string) string {
+		return file + ".csv"
+	}
+	addExc(f2, "file1")
+
+	f3 := sas()
+	fmt.Println(f3(2))
 }
