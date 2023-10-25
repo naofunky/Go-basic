@@ -5,8 +5,14 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"sort"
 	"strings"
 )
+
+type Person struct {
+	Name string `json:"name"`
+	Age  int    `json:"age"`
+}
 
 func funcDefer() {
 	defer fmt.Println("main func final-finish")
@@ -82,4 +88,15 @@ func main() {
 
 	f3 := sas()
 	fmt.Println(f3(2))
+
+	people := []Person{
+		{"夏生", 20},
+		{"楠葉", 23},
+		{"月香", 18},
+	}
+
+	sort.Slice(people, func(i, j int) bool {
+		return people[i].Age > people[j].Age
+	})
+	fmt.Println(people)
 }
