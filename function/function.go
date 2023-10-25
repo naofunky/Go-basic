@@ -55,6 +55,15 @@ func sas() func(int) int {
 	}
 }
 
+// クロージャ
+func countUp() func(int) int {
+	count := 0
+	return func(n int) int {
+		count += n
+		return count
+	}
+}
+
 func main() {
 	funcDefer()
 	// スライスの値を引数に渡すことで、拡張子を除いてファイル名だけを返してくれる
@@ -99,4 +108,10 @@ func main() {
 		return people[i].Age > people[j].Age
 	})
 	fmt.Println(people)
+
+	f4 := countUp()
+	for i := 1; i <= 5; i++ {
+		v := f4(2)
+		fmt.Printf("%v\n", v)
+	}
 }
