@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	// "time"
 )
 
@@ -45,4 +46,23 @@ func main() {
 	//		}
 	//		fmt.Printf("\n")
 	//	}
+
+	items := []item{
+		{price: 1.1},
+		{price: 3.3},
+		{price: 2.2},
+	}
+
+	for i := range items {
+		items[i].price *= 1.1
+	}
+	sort.Slice(items, func(j, n int) bool {
+		return items[j].price > items[n].price
+	})
+
+	fmt.Println(items)
+}
+
+type item struct {
+	price float32
 }
