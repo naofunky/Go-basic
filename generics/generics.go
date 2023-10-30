@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	"golang.org/x/exp/constraints"
 )
 
 // コンストレンズ
@@ -19,6 +21,14 @@ type NewString string
 func add[T customConstraints](x, y T) T {
 	return x + y
 }
+
+// 値を小さい方を返す関数を作成
+func min[T constraints.Ordered](x, y T) T {
+	if x < y {
+		return x
+	}
+	return y
+}
 func main() {
 	fmt.Printf("%v\n", add(1, 2))
 	fmt.Printf("%v\n", add(1.2, 2.3))
@@ -26,14 +36,15 @@ func main() {
 	fmt.Printf("%v\n", add("Hello", "Golang"))
 
 	var i1, i2 NewInt = 3, 4
-	var i3, i4 NewInt16 = 16, 23
-	var i5, i6 NewFloat32 = 2.32, 4.56
-	var i7, i8 NewFloat64 = 2.32567686, 4.56768970467
-	var i9, i10 NewString = "Hello", "World"
+	// var i3, i4 NewInt16 = 16, 23
+	// var i5, i6 NewFloat32 = 2.32, 4.56
+	// var i7, i8 NewFloat64 = 2.32567686, 4.56768970467
+	// var i9, i10 NewString = "Hello", "World"
 
 	fmt.Printf("%v\n", add(i1, i2))
-	fmt.Printf("%v\n", add(i3, i4))
-	fmt.Printf("%v\n", add(i5, i6))
-	fmt.Printf("%v\n", add(i7, i8))
-	fmt.Printf("%v\n", add(i9, i10))
+	fmt.Printf("%v\n", min(i1, i2))
+	// fmt.Printf("%v\n", add(i3, i4))
+	// fmt.Printf("%v\n", add(i5, i6))
+	// fmt.Printf("%v\n", add(i7, i8))
+	// fmt.Printf("%v\n", add(i9, i10))
 }
