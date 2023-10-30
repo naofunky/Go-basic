@@ -21,6 +21,9 @@ func add[T customConstraints](x, y T) T {
 }
 func main() {
 	fmt.Printf("%v\n", add(1, 2))
+	fmt.Printf("%v\n", add(1.2, 2.3))
+	fmt.Printf("%v\n", add(3.343, 6.789))
+	fmt.Printf("%v\n", add("Hello", "Golang"))
 
 	var i1, i2 NewInt = 3, 4
 	var i3, i4 NewInt16 = 16, 23
