@@ -31,10 +31,12 @@ func add[T customConstraints](x, y T) T {
 // }
 
 // mapのgenericsで合計値を出す関数
-func sumValues[K uint | string, T constraints.Float | constraints.Integer | string](m map[K]T) T {
+func sumValues[K int | string, T constraints.Float | constraints.Integer | string](m map[K]T) T {
 	var sum T
-	for _, v := range m {
-		sum += v
+
+	// mapの要素数分だけループ
+	for _, k := range m {
+		sum += k
 	}
 	return sum
 }
@@ -59,19 +61,19 @@ func main() {
 	// fmt.Printf("%v\n", add(i9, i10))
 
 	// mapで扱った値をgenericsを用いて、合計する
-	map1 := map[string]uint{
+	map1 := map[string]int{
 		"B": 10,
 		"A": 4,
 		"C": 8,
 	}
 
-	map2 := map[uint]float32{
+	map2 := map[int]float32{
 		1: 2.2,
 		5: 6.7,
 		9: 1.1,
 	}
 
-	map3 := map[uint]string{
+	map3 := map[int]string{
 		1: "H",
 		2: "e",
 		3: "l",
