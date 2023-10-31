@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 // generics/generics.goのコードをテストする
 func TestGenerics(t *testing.T) {
@@ -29,4 +32,31 @@ func TestGenerics(t *testing.T) {
 			t.Errorf("add(\"1\", \"2\") is not \"12\"")
 		}
 	})
+}
+
+func Test_reverse(t *testing.T) {
+	type args struct {
+		s []string
+	}
+	tests := []struct {
+		name string
+		args args
+		want []string
+	}{
+		// TODO: Add test cases
+		{
+			name: "reverse",
+			args: args{
+				s: []string{"a", "b", "c"},
+			},
+			want: []string{"c", "b", "a"},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := reverse(tt.args.s); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("reverse() = %v, want %v", got, tt.want)
+			}
+		})
+	}
 }
