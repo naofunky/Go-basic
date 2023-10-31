@@ -6,6 +6,16 @@ import (
 	"golang.org/x/exp/constraints"
 )
 
+// スライスを逆順にする関数
+func reverse[T any](s []T) []T {
+	size := len(s)
+	results := make([]T, size)
+	for i, v := range s {
+		results[size-1-i] = v
+	}
+	return results
+}
+
 // コンストレンズ
 type customConstraints interface {
 	~int | ~int16 | ~float32 | ~float64 | ~string
@@ -81,7 +91,16 @@ func main() {
 		5: "o",
 	}
 
+	s1 := []int{
+		1,
+		2,
+		3,
+		4,
+		5,
+	}
+
 	fmt.Printf("%v\n", sumValues(map1))
 	fmt.Printf("%v\n", sumValues(map2))
 	fmt.Printf("%v\n", sumValues(map3))
+	fmt.Printf("%v\n", reverse(s1))
 }
