@@ -60,3 +60,33 @@ func Test_reverse(t *testing.T) {
 		})
 	}
 }
+
+func Test_sumValues(t *testing.T) {
+	type args struct {
+		m map[int]string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		// TODO: Add test cases.
+		{
+			name: "sumValues",
+			args: args{
+				m: map[int]string{
+					1: "あ",
+					2: "い",
+				},
+			},
+			want: "あい",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := sumValues(tt.args.m); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("sumValues() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
