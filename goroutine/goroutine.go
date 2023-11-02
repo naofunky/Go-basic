@@ -58,6 +58,7 @@ func main() {
 	go cTack(ctx, &wg, "Task2")
 	go cTack(ctx, &wg, "Task3")
 	wg.Wait()
+	fmt.Println("main func finish")
 }
 
 // 逐次関数処理
