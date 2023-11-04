@@ -70,6 +70,7 @@ func main() {
 
 // goroutineを利用してタスクを並行処理
 func cTack(ctx context.Context, wg *sync.WaitGroup, name string) {
+	// deferのメソッドチェーンは後ろの関数のみ遅延
 	defer trace.StartRegion(ctx, name).End()
 	defer wg.Done()
 	time.Sleep(time.Second)
