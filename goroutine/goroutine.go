@@ -72,6 +72,7 @@ func main() {
 func cTack(ctx context.Context, wg *sync.WaitGroup, name string) {
 	// deferのメソッドチェーンは後ろの関数のみ遅延
 	defer trace.StartRegion(ctx, name).End()
+	// ゴルーチンの完了をここで終える
 	defer wg.Done()
 	time.Sleep(time.Second)
 	fmt.Println(name)
