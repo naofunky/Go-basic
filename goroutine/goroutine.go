@@ -58,6 +58,18 @@ func main() {
 	go cTack(ctx, &wg, "Task2")
 	go cTack(ctx, &wg, "Task3")
 	wg.Wait()
+
+	// ゴルーチン注意点
+	s := []int{1, 2, 3}
+
+	for _, i := range s {
+		wg.Add(1)
+		go func(i int) {
+			defer wg.Done()
+			fmt.Println(i)
+		}(i)
+	}
+	wg.Wait()
 	fmt.Println("main func finish")
 }
 
