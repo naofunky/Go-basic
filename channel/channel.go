@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 // func add(start, end int) int {
 // 	sum := 0
@@ -71,7 +74,32 @@ func main() {
 	// fmt.Printf("Concurrency Time: %d ms\n", elapsed.Microseconds())
 
 	// バッファあり
-	ch2 := make(chan int, 1)
-	ch2 <- 10
-	fmt.Println(<-ch2)
+	// ch2 := make(chan int, 1)
+	// ch2 <- 10
+	// fmt.Println(<-ch2)
+
+	// クローズ
+	ch3 := make(chan int)
+	var wg sync.WaitGroup
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		fmt.Println(<-ch3)
+	}()
+	ch3 <- 10
+	close(ch3)
+	v, ok := <-ch3
+	fmt.Printf("%v %v\n", v, ok)
+	wg.Wait()
+
+	ch4 := make(chan int, 2)
+	ch4 <- 3
+	ch4 <- 4
+	close(ch4)
+	v, ok = <-ch4
+	fmt.Printf("%v %v\n", v, ok)
+	v, ok = <-ch4
+	fmt.Printf("%v %v\n", v, ok)
+	v, ok = <-ch4
+	fmt.Printf("%v %v\n", v, ok)
 }
