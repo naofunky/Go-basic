@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // func add(start, end int) int {
 // 	sum := 0
 // 	for i := start; i <= end; i++ {
@@ -67,4 +69,9 @@ func main() {
 
 	// elapsed = time.Since(start)
 	// fmt.Printf("Concurrency Time: %d ms\n", elapsed.Microseconds())
+
+	// バッファあり
+	ch2 := make(chan int, 1)
+	ch2 <- 10
+	fmt.Println(<-ch2)
 }
