@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sync"
 )
 
 // func add(start, end int) int {
@@ -79,27 +78,45 @@ func main() {
 	// fmt.Println(<-ch2)
 
 	// クローズ
-	ch3 := make(chan int)
-	var wg sync.WaitGroup
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		fmt.Println(<-ch3)
-	}()
-	ch3 <- 10
-	close(ch3)
-	v, ok := <-ch3
-	fmt.Printf("%v %v\n", v, ok)
-	wg.Wait()
+	// ch3 := make(chan int)
+	// var wg sync.WaitGroup
+	// wg.Add(1)
+	// go func() {
+	// 	defer wg.Done()
+	// 	fmt.Println(<-ch3)
+	// }()
+	// ch3 <- 10
+	// close(ch3)
+	// v, ok := <-ch3
+	// fmt.Printf("%v %v\n", v, ok)
+	// wg.Wait()
 
-	ch4 := make(chan int, 2)
-	ch4 <- 3
-	ch4 <- 4
-	close(ch4)
-	v, ok = <-ch4
-	fmt.Printf("%v %v\n", v, ok)
-	v, ok = <-ch4
-	fmt.Printf("%v %v\n", v, ok)
-	v, ok = <-ch4
-	fmt.Printf("%v %v\n", v, ok)
+	// ch4 := make(chan int, 2)
+	// ch4 <- 3
+	// ch4 <- 4
+	// close(ch4)
+	// v, ok = <-ch4
+	// fmt.Printf("%v %v\n", v, ok)
+	// v, ok = <-ch4
+	// fmt.Printf("%v %v\n", v, ok)
+	// v, ok = <-ch4
+	// fmt.Printf("%v %v\n", v, ok)
+
+	ch6 := generateCountStream()
+	for v := range ch6 {
+		fmt.Println(v)
+	}
+}
+
+// 読み込み専用のチャネル生産関数
+func generateCountStream() <-chan int {
+	ch := make(chan int)
+
+	go func() {
+		defer close(ch)
+		for i := 0; i <= 5; i++ {
+			ch <- i
+		}
+	}()
+	return ch
 }
