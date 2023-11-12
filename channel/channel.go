@@ -110,6 +110,7 @@ func main() {
 
 // 読み込み専用のチャネル生産関数
 func generateCountStream() <-chan int {
+	// チャネルを初期化
 	ch := make(chan int)
 
 	go func() {
