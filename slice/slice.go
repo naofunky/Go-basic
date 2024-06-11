@@ -7,21 +7,24 @@ import (
 )
 
 func main() {
-	// sl := []int{}
+	sl := []int{}
 
 	// sl = append(sl, 1)
 	// sl = append(sl, 2)
-	// sl = append(sl, 1, 2, 3, 4, 5)
+	sl = append(sl, 1, 2, 3, 4, 5)
 
-	// for _, v := range sl {
-	// 	fmt.Println(v)
-	// }
+	for i, v := range sl {
+		fmt.Println(
+			"インデックス番号", i,
+			"value値", v,
+		)
+	}
 
-	// var nilSlice []int
-	// emptySlice := []int{}
+	var nilSlice []int
+	emptySlice := []int{}
 
-	// fmt.Println(nilSlice == nil)
-	// fmt.Println(emptySlice == nil)
+	fmt.Println(nilSlice == nil)
+	fmt.Println(len(emptySlice) == 0)
 
 	// fmt.Println(len(nilSlice))
 	// fmt.Println(len(emptySlice))
@@ -129,21 +132,21 @@ func main() {
 	// fmt.Println("sc16:", sc16, len(sc16), cap(sc16))
 
 	//　コピーする範囲を限定するスライスを複製してデータを変更してみる
-	s30 := make([]int, 4, 6)
-	fs := s30[1:3:3]
-	fmt.Println("s30:", s30, len(s30), cap(s30))
-	fmt.Println("fs:", s30, len(fs), cap(fs))
+	// s30 := make([]int, 4, 6)
+	// fs := s30[1:3:3]
+	// fmt.Println("s30:", s30, len(s30), cap(s30))
+	// fmt.Println("fs:", s30, len(fs), cap(fs))
 
-	fs[0] = 2
-	fs[1] = 3
-	fmt.Println("s30:", s30, len(s30), cap(s30))
-	fmt.Println("fs:", s30, len(fs), cap(fs))
+	// fs[0] = 2
+	// fs[1] = 3
+	// fmt.Println("s30:", s30, len(s30), cap(s30))
+	// fmt.Println("fs:", s30, len(fs), cap(fs))
 
-	fs = append(fs, 8)
-	fmt.Println("s30:", s30, len(s30), cap(s30))
-	fmt.Println("fs:", s30, len(fs), cap(fs))
+	// fs = append(fs, 8)
+	// fmt.Println("s30:", s30, len(s30), cap(s30))
+	// fmt.Println("fs:", s30, len(fs), cap(fs))
 
-	s30[3] = 999
-	fmt.Println("s30:", s30, len(s30), cap(s30))
-	fmt.Println("fs:", s30, len(fs), cap(fs))
+	// s30[3] = 999
+	// fmt.Println("s30:", s30, len(s30), cap(s30))
+	// fmt.Println("fs:", s30, len(fs), cap(fs))
 }
