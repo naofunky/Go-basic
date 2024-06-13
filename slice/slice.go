@@ -7,11 +7,11 @@ import (
 )
 
 func main() {
-	sl := []int{}
+	// sl := []int{}
 
 	// sl = append(sl, 1)
 	// sl = append(sl, 2)
-	sl = append(sl, 1, 2, 3, 4, 5, 6)
+	// sl = append(sl, 1, 2, 3, 4, 5, 6)
 
 	// for i, v := range sl {
 	// 	fmt.Println(
@@ -20,11 +20,11 @@ func main() {
 	// 	)
 	// }
 
-	var nilSlice []int
-	emptySlice := []int{}
+	// var nilSlice []int
+	// emptySlice := []int{}
 
-	fmt.Println(nilSlice == nil)
-	fmt.Println(len(emptySlice) == 0)
+	// fmt.Println(nilSlice == nil)
+	// fmt.Println(len(emptySlice) == 0)
 
 	// fmt.Println(len(nilSlice))
 	// fmt.Println(len(emptySlice))
@@ -32,17 +32,17 @@ func main() {
 	// fmt.Println(cap(nilSlice))
 	// fmt.Println(cap(emptySlice))
 
-	fmt.Println(sl)
+	// fmt.Println(sl)
 	// fmt.Println(sl[0])
 	// fmt.Println(len(sl))
 	// 最後の要素の取得
-	lastElement := sl[len(sl)-1]
-	fmt.Println(lastElement)
+	// lastElement := sl[len(sl)-1]
+	// fmt.Println(lastElement)
 
-	// s4 := make([]int, 0, 4)
-	// fmt.Println(s4, len(s4), cap(s4))
-	// s5 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-	// fmt.Println(s5, len(s5), cap(s5))
+	s4 := make([]int, 0, 4)
+	fmt.Println(s4, len(s4), cap(s4))
+	s5 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+	fmt.Println(s5, len(s5), cap(s5))
 	// s76 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
 	// fmt.Println(s76, len(s76), cap(s76))
 
