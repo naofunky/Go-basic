@@ -41,10 +41,10 @@ func main() {
 
 	s4 := make([]int, 0, 4)
 	fmt.Println(s4, len(s4), cap(s4))
-	s5 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9)
-	fmt.Println(s5, len(s5), cap(s5))
-	// s76 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
-	// fmt.Println(s76, len(s76), cap(s76))
+	// s5 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+	// fmt.Println(s5, len(s5), cap(s5))
+	s76 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+	fmt.Println(s76, len(s76), cap(s76))
 
 	// s5 := make([]int, 3, 6)
 	// fmt.Println(s5, len(s5), cap(s5))
