@@ -43,8 +43,10 @@ func main() {
 	fmt.Println(s4, len(s4), cap(s4))
 	// s5 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 	// fmt.Println(s5, len(s5), cap(s5))
-	s76 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
-	fmt.Println(s76, len(s76), cap(s76))
+	// s1000 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)
+	// fmt.Println("s1000", s1000, len(s1000), cap(s1000)) //11,12,
+	// s76 := append(s4, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+	// fmt.Println(s76, len(s76), cap(s76))
 
 	// s5 := make([]int, 3, 6)
 	// fmt.Println(s5, len(s5), cap(s5))
@@ -152,4 +154,25 @@ func main() {
 	// s30[3] = 999
 	// fmt.Println("s30:", s30, len(s30), cap(s30))
 	// fmt.Println("fs:", s30, len(fs), cap(fs))
+
+	x := make([]int, 0, 6)
+	x = append(x, 1, 2, 3, 4, 5)
+	// y := x[:3]
+	// z := x[3:]
+	y := x[:2:5]
+	z := x[2:4:4]
+
+	fmt.Println(x, y, z)
+	fmt.Println(len(x), len(y), len(z))
+	fmt.Println(cap(x), cap(y), cap(z))
+
+	y = append(y, 30, 40, 50)
+	x = append(x, 60)
+	z = append(z, 12, 21, 121)
+
+	fmt.Println("x", x,
+		"y", y,
+		"z", z)
+	fmt.Println(len(x), len(y), len(z))
+	fmt.Println(cap(x), cap(y), cap(z))
 }
