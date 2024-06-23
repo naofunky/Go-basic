@@ -116,8 +116,8 @@ func main() {
 	s15 := make([]int, 4, 7)
 	s16 := s15[1:3]
 
-	fmt.Println("s15:", s15, len(s15), cap(s15))
-	fmt.Println("s16:", s16, len(s16), cap(s16))
+	// fmt.Println("s15:", s15, len(s15), cap(s15))
+	// fmt.Println("s16:", s16, len(s16), cap(s16))
 
 	// 値を代入して確認
 	s16[1] = 100
