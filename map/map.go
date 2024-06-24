@@ -5,6 +5,9 @@ import "fmt"
 func main() {
 	// 宣言法
 	m := map[string]string{}
+	var nilmap map[string]int
+	fmt.Println(len(nilmap))
+	// fmt.Println(cap(nilmap))
 
 	// 初期化
 	// m := map[string]string{
@@ -19,7 +22,7 @@ func main() {
 	m["sex"] = "woman"
 
 	// 値の取得はキーを指定する
-	// fmt.Println(m["name"])
+	fmt.Println(m["name"])
 
 	// 要素を取得する際に第二戻り値を用意すると、keyの有無を調べることができる
 	// v, ok := m["sex"]
