@@ -7,22 +7,22 @@ func main() {
 	m := map[string]string{}
 	var nilmap map[string]int
 	fmt.Println(len(nilmap))
-	// fmt.Println(cap(nilmap))
+	fmt.Println(m)
 
 	// 初期化
-	// m := map[string]string{
-	// 	"name": "Bob",
-	// 	"age":  "18",
-	// 	"sex":  "woman",
-	// }
+	mo := map[string]string{
+		"name": "Bob",
+		"age":  "18",
+		"sex":  "woman",
+	}
 
 	// 値の追加する方法
-	m["name"] = "Bob"
-	m["age"] = "18"
-	m["sex"] = "woman"
+	mo["name"] = "Bob"
+	mo["age"] = "18"
+	mo["sex"] = "woman"
 
 	// 値の取得はキーを指定する
-	fmt.Println(m["name"])
+	fmt.Println(mo["name"])
 
 	// 要素を取得する際に第二戻り値を用意すると、keyの有無を調べることができる
 	// v, ok := m["sex"]
