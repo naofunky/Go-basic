@@ -36,8 +36,8 @@ func main() {
 	}
 
 	// mapの削除機能は第一引数には削除対象のmap第二引数には削除する要素のキーを指定する
-	// delete(m, "name")
-	// fmt.Println(m)
+	delete(mo, "name")
+	fmt.Println(mo)
 
 	// fmt.Println(m)
 
