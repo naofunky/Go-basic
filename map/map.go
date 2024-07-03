@@ -22,7 +22,7 @@ func main() {
 	mo["sex"] = "woman"
 
 	// 値の取得はキーを指定する
-	// fmt.Println(mo["name"])
+	fmt.Println(mo["name"])
 
 	// 要素を取得する際に第二戻り値を用意すると、keyの有無を調べることができる
 	v, ok := mo["sex"]
