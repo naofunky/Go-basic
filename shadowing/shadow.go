@@ -9,8 +9,8 @@ func main() {
 
 	if x > 5 {
 		fmt.Println("inner block", x)
-		x := 5
-		fmt.Println("inner block", x)
+		a, x := 20, 5
+		fmt.Println("inner block", x, a)
 	}
 	fmt.Println("outter block", x)
 }
