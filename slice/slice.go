@@ -133,8 +133,8 @@ func main() {
 	// fmt.Println("sc16:", sc16, len(sc16), cap(sc16)) // まずはコピー先のスライス作成
 	copy(sc16, s15[1:3]) // copy関数でコピー
 	sc16[1] = 2000
-	fmt.Println("s15:", s15, len(s15), cap(s15))
-	fmt.Println("sc16:", sc16, len(sc16), cap(sc16))
+	// fmt.Println("s15:", s15, len(s15), cap(s15))
+	// fmt.Println("sc16:", sc16, len(sc16), cap(sc16))
 
 	//　コピーする範囲を限定するスライスを複製してデータを変更してみる
 	// s30 := make([]int, 4, 6)
