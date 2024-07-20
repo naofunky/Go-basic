@@ -21,4 +21,17 @@ func main() {
 
 		fmt.Println(i)
 	}
+
+	for i := 1; i <= 100; i++ {
+		if i%3 == 0 {
+			fmt.Println(i, "3で割り切れる数")
+			if i%5 == 0 {
+				fmt.Println(i, "3でも5でも割り切れる数")
+			}
+		} else if i%5 == 0 {
+			fmt.Println(i, "5で割り切れる数")
+		} else {
+			fmt.Println(i)
+		}
+	}
 }
