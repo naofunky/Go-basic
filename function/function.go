@@ -114,4 +114,13 @@ func main() {
 		v := f4(2)
 		fmt.Printf("%v\n", v)
 	}
+
+
+
+	func divAndRemainder(numerator, denominator int) (int, int, error) {
+		if denominator == 0 {
+			return 0, 0, errors.New("0での除算はできない")
+		}
+		return numerator/ denominator, numerator % denominator, nil
+	}
 }
