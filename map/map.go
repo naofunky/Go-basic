@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	// 宣言法
-	m := map[string]string{}
+	// m := map[string]string{}
 	// var nilmap map[string]int
 	// fmt.Println(len(nilmap))
 	// fmt.Println(m)

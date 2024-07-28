@@ -64,6 +64,13 @@ func countUp() func(int) int {
 	}
 }
 
+func divAndRemainder(numerator, denominator int) (int, int, error) {
+	if denominator == 0 {
+		return 0, 0, errors.New("0での除算はできない")
+	}
+	return numerator / denominator, numerator % denominator, nil
+}
+
 func main() {
 	funcDefer()
 	// スライスの値を引数に渡すことで、拡張子を除いてファイル名だけを返してくれる
@@ -115,12 +122,10 @@ func main() {
 		fmt.Printf("%v\n", v)
 	}
 
-
-
-	func divAndRemainder(numerator, denominator int) (int, int, error) {
-		if denominator == 0 {
-			return 0, 0, errors.New("0での除算はできない")
-		}
-		return numerator/ denominator, numerator % denominator, nil
+	result, numerator, err := divAndRemainder(5, 2)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
 	}
+	fmt.Println(result, numerator)
 }
