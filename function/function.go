@@ -64,6 +64,12 @@ func countUp() func(int) int {
 	}
 }
 
+// ブランクreturnの例
+func add(a int, b int) (sum int) {
+	sum = a + b
+	return
+}
+
 func divAndRemainder(numerator, denominator int) (int, int, error) {
 	if denominator == 0 {
 		return 0, 0, errors.New("0での除算はできない")
@@ -128,4 +134,6 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Println(result, numerator)
+
+	fmt.Println(add(2, 4))
 }
