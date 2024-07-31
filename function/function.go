@@ -67,7 +67,7 @@ func countUp() func(int) int {
 // ブランクreturnの例
 func add(a int, b int) (sum int) {
 	sum = a + b
-	return
+	return sum
 }
 
 func divAndRemainder(numerator, denominator int) (int, int, error) {
