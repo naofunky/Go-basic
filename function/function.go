@@ -135,5 +135,5 @@ func main() {
 	}
 	fmt.Println(result, numerator)
 
-	fmt.Println(add(2, 4))
+	fmt.Println(add(3, 6))
 }
