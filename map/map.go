@@ -50,8 +50,8 @@ func main() {
 
 	for _, v := range duplicatedArray {
 		_, loopValue := myMap[v]
-		// fmt.Println(v)
-		// fmt.Println(loopValue)
+		fmt.Println(v)
+		fmt.Println(loopValue)
 
 		if !loopValue {
 			myMap[v] = struct{}{}
