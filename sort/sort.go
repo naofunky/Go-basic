@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"sort"
 )
 
@@ -21,9 +22,9 @@ func main() {
 	fmt.Println("sort前", people)
 
 	// peopleのデータがなかったらエラーを出す
-	// if len(people) = nil {
-
-	// }
+	if len(people) == 0 {
+		log.Fatal("データがありません。")
+	}
 
 	// ソートする
 	sort.Slice(people, func(i int, j int) bool {
