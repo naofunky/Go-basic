@@ -20,7 +20,7 @@ func main() {
 	defer f.Close()
 
 	// fmt.Println("ファイルを指定できました")
-	// fmt.Println(f)
+	fmt.Println(f)
 
 	data := make([]byte, 2048)
 	fmt.Println(data)
