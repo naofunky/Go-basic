@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	// sl := []int{}
+	sl := []int{}
 
-	// sl = append(sl, 1)
+	sl = append(sl, 1)
 	// sl = append(sl, 2)
 	// sl = append(sl, 1, 2, 3, 4, 5, 6)
 
