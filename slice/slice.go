@@ -11,7 +11,7 @@ func main() {
 
 	sl = append(sl, 1)
 	sl = append(sl, 2)
-	// sl = append(sl, 1, 2, 3, 4, 5, 6)
+	sl = append(sl, 1, 2, 3, 4, 5, 6)
 
 	// for i, v := range sl {
 	// 	fmt.Println(
